@@ -41,22 +41,22 @@ var map;
     // }
 
     // This function must be used if and when user input the name of the city
-    function getCityID(url, radius) {
-        console.log("url before ajax = " + url);
-        $.ajax({
-            'url': url,
-            'method': 'GET',
-            "headers": {
-                "user-key": zomatoKey
-            },
-        }).then(function (response) {
-            cityID = parseInt((response.location_suggestions[0].id))
-            console.log(cityID)
-            QueryURL = 'https://developers.zomato.com/api/v2.1/search?entity_id=' + cityID + '&entity_type=city&count=100&radius=' + radius;
-            console.log("url = " +QueryURL);
-            GetRestaurantData(QueryURL)
-        })
-    }
+    // function CriteriaSearch(url, radius) {
+    //     console.log("url before ajax = " + url);
+    //     $.ajax({
+    //       'url': url,
+    //         'method': 'GET',
+    //         'headers': {
+    //             Authorization: `Bearer ${yelpKey}`
+    //         },
+    //     }).then(function (response) {
+    //         cityID = parseInt((response.location_suggestions[0].id))
+    //         console.log(cityID)
+    //         QueryURL = 'https://developers.zomato.com/api/v2.1/search?entity_id=' + cityID + '&entity_type=city&count=100&radius=' + radius;
+    //         console.log("url = " +QueryURL);
+    //         GetRestaurantData(QueryURL)
+    //     })
+    // }
 
     // This function retrieve the data of the first 20 restaurant within a radius of 8km
     function GetRestaurantData(url) {
@@ -169,7 +169,7 @@ var map;
         var marker = new google.maps.Marker({
             position: { lat: latV, lng: lngV },
             map: map,
-            title: "FINDR says: "+ name
+            title: "FINDR Says: "+ name
           });
     }
 
@@ -189,24 +189,31 @@ var map;
         $(".searchDropdown").fadeToggle();
     });
 
+// Search by criteria provided by user
+
     $("#submitBtn").click(function(event){
         event.preventDefault();
        var city =  $("#cityName").val();
-       var radius = $("#distanceMax").val() * 1000;
+       var radius = $("#distanceMax").val() * 1600;
        
 
        if (!city)
        {
         $("#cityName").val("You must pick a city!"); 
        }
+
        if (!radius)
        {
         $("#distanceMax").val("You must pick a distance!")
        }
-       if (radius && city)
+       else if (radius > 40000)
        {
-        var url = "https://developers.zomato.com/api/v2.1/cities?q=" + city;
-        getCityID(url,radius);
+        $("#distanceMax").val("Max distance is 25 miles")
+       }
+       else (radius<=40000 && city)
+       {
+        var searchURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=' + city + '&radius=' + radius + '&limit=50';;
+        GetRestaurantData(searchURL)
        }
 
        console.log(city +" & "+ radius)
