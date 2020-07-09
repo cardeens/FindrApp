@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    
+
 
 </head>
 
@@ -17,8 +17,9 @@
 
     <!-- Header with FINDR logo  -->
     <header>
-        <img class="banner"
-            src="pic/bannerFinder.jpg" alt="FINDR Logo">
+        <div class="headerBanner">
+            <img class="bannerImage" src="pic\Findr.png" alt="FINDR Logo">
+        </div>
     </header>
 
     <!-- Optional criteria button  -->
@@ -27,21 +28,27 @@
     </nav>
 
     <!-- display form after user clicks criteria button-->
-    <div class="searchDropdown hide">   
+    <div class="searchDropdown hide">
         <form>
             <!-- Optional criteria input section -->
-            <label>City Name: <input type="text"  id="cityName"></label>
-            <label>Maximum Distance in Miles: <input type="text"  id="distanceMax"></label> <!-- where to eat *Must have-->
-            
+            <label>City Name: <input type="text" id="cityName"></label>
+            <label>Maximum Distance in Miles: <input type="text" id="distanceMax"></label>
+            <!-- where to eat *Must have-->
 
-            <label><button type="submit" id="submitBtn" class="">Find My Food</button></label>
-            <label><button type="reset" id="clearBtn" class="">Start Over</button></label>
+
+            <label><button class="searchBtn" type="submit" id="submitBtn" class="">Find My Food</button></label>
+            <label><button class="searchBtn" type="reset" id="clearBtn" class="">Start Over</button></label>
         </form>
     </div> <!-- End of sideNav -->
 
     <!-- Intro message pops up when user opens app  -->
     <div class="intro">
-        <p>Welcome to FINDR! We're here to help you decide where to eat as quickly as possible. When you're ready, we will randomly present you with an image from a restaurant within 25 miles of your current location. If you're not feeling it, hit the red thumbs-down and we'll show you the next random option. If you like what you see, hit the green thumbs-up and we will show you the restaurant info so that you can go eat up! If you want to check out options in a different city or change the size of your search area, click the Filter Your Options tab and add your criteria.</p>
+        <p>Welcome to FINDR! We're here to help you decide where to eat as quickly as possible. When you're ready, we
+            will randomly present you with an image from a restaurant within 25 miles of your current location. If
+            you're not feeling it, hit the red thumbs-down and we'll show you the next random option. If you like what
+            you see, hit the green thumbs-up and we will show you the restaurant info so that you can go eat up! If you
+            want to check out options in a different city or change the size of your search area, click the Filter Your
+            Options tab and add your criteria.</p>
         <button id="introBtn">Lets Eat!</button>
     </div>
 
@@ -58,36 +65,36 @@
             <!-- Like/Dislike buttons  -->
             <div class="selection hide">
                 <img class="selectionImage" id="nope" src="pic/redThumbDislike.png" alt="Dislike Button">
-                <img class = "selectionImage" id="yeah" src="pic/greenThumbLike.png" alt="Like Button">
+                <img class="selectionImage" id="yeah" src="pic/greenThumbLike.png" alt="Like Button">
             </div>
         </div>
 
-        <div id = patch></div>
+        <div id=patch></div>
 
         <!-- Restaurant info  -->
         <div id="consequenceSection" class="results hide">
             <p>Name : <span id="nameResult"></span></p>
             <p>Address : <span id="AddressResult"></span></p>
             <p>Rating : <span id="RatingResult"></span></p>
-            <p>Average Cost for 2 people : <span id="pricesResult"></span></p>
+            <p>Cost : <span id="pricesResult"></span></p>
             <p>Distance from You: <span id="distance"></span></p>
             <p>Open Now: <span id="hourRest"></span></p>
         </div>
-        
+
         <!-- Map -->
         <div id="map"></div>
-        
-        
+
+
     </div> <!-- End of middle container-->
-    
+
     <!-- Footer  -->
     <div>
-    <footer class="footer hide" id="footer">Copyright © FINDR 2020. All rights reserved.</footer>
+        <footer class="footer hide" id="footer">Copyright © FINDR 2020. All rights reserved.</footer>
     </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWRhElirrFtf5xMrnvVJUmgIIP2NIwXM4"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
-    <script src="js/script.js"></script>		
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
