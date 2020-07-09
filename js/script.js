@@ -17,7 +17,7 @@ var map;
             lng = response.location.lng
             console.log(lat)
             console.log(lng)
-            var queryURLinput = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude=' + lat + '&longitude=' + lng + '&radius=8000&limit=50';
+            var queryURLinput = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude=' + lat + '&longitude=' + lng + '&radius=4000&limit=50';
             console.log(queryURLinput)
             GetRestaurantData(queryURLinput)
         })
@@ -91,14 +91,15 @@ var map;
                 $("#nope").unbind().click(function (event) {
                     event.preventDefault();
 
-                    counter = counter + 50;
+                    // counter = counter + 10;
                     var limit = response.total - 50;
                     // if (counter > 80 || counter > limit) {
                     //     counter = 0;
 
                     // }
 
-                    newUrl = url + "&offset=" + counter;
+                    newUrl = url 
+                    // + "&offset=" + counter;
 
                     GetRestaurantData(newUrl);
 
