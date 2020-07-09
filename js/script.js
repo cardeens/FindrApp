@@ -108,10 +108,10 @@ function GetRestaurantData(url) {
             // if the YES button is clicked
             $("#yeah").click(function () {
                 //Display detail
-                $("#patch").remove();
+                // $("#patch").remove();
                 $("#consequenceSection").removeClass("hide");
-                $("#consequenceMapSection").removeClass("hide");
-                $(".footer").removeClass("hide");
+                $("#map").removeClass("hide");
+                
 
                 var restName = rest.name;
                 var restAddress = rest.location.address1;
@@ -184,6 +184,7 @@ $("#introBtn").click(function (event) {
     $(".slider").removeClass("hide");
     $(".selection").removeClass("hide");
     $(".criteriaBtn").removeClass("hide");
+    $(".footer").removeClass("hide");
 });
 
 $("#sideBarBtn").click(function () {

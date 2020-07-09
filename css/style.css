@@ -103,6 +103,7 @@ header {
 .hide{
     display: none;
     border: 1px solid #c06014;
+    height: 0px;
 }
 
 .slider {
